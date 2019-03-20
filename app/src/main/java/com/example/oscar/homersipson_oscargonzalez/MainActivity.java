@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         animation();
+        mp = MediaPlayer.create(this, R.raw.the_simpsons);
         engraVermell = findViewById(R.id.imageEngraVermell);
         engraVerd = findViewById(R.id.imageEngraVerd);
         engraBlau = findViewById(R.id.imageEngraBlau);
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             izquierda(engraBlau);
             izquierda(engraVermell);
             mueveDonut(donut);
-            musica();
+
             mueveOjo();
         }else{
 
@@ -59,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             engraVerd.clearAnimation();
             ull.clearAnimation();
             donut.clearAnimation();
-            mp.stop();
+
 
             engraVermell.setVisibility(View.INVISIBLE);
             engraVerd.setVisibility(View.INVISIBLE);
@@ -87,16 +88,19 @@ public class MainActivity extends AppCompatActivity {
                 AnimationUtils.loadAnimation(getApplicationContext(), R.anim.move);
         donut.startAnimation(animation4);
     }
-    private void musica(){
-       mp = MediaPlayer.create(this, R.raw.the_simpsons);
-       mp.start();
 
-    }
 
     private void mueveOjo(){
         animation5 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.ull);
         ull.startAnimation(animation5);
     }
 
+    public void clickDonut(View view){
+        if(mp.isPlaying()){
+            mp.stop();
+        }else{
+            mp.start();
+        }
+    }
 }
 

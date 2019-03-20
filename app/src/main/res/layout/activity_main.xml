@@ -12,6 +12,7 @@
         android:layout_height="508dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="4dp"
+        android:contentDescription="@string/Homer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/homer_simpson" />
@@ -22,8 +23,9 @@
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="48dp"
-        android:src="@drawable/animacion"
+        android:contentDescription="@string/simpson"
         android:onClick="onClick"
+        android:src="@drawable/animacion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,6 +35,7 @@
         android:layout_height="55dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="248dp"
+        android:contentDescription="@string/Ull"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/ImageHomer"
         app:layout_constraintEnd_toEndOf="@+id/ImageHomer"
@@ -46,6 +49,7 @@
         android:layout_height="118dp"
         android:layout_marginTop="24dp"
         android:visibility="invisible"
+        android:onClick="clickDonut"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/simple_anim"
         app:srcCompat="@drawable/donut" />
