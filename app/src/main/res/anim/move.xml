@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<set
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:repeatMode="reverse"
-    >
+<set xmlns:android="http://schemas.android.com/apk/res/android" android:shareInterpolator="false">
 
-    <translate
-        android:fromYDelta="0%p"
-        android:toYDelta="15%p"
-        android:duration="700"
-
+    <rotate
+        android:interpolator = "@android:anim/linear_interpolator"
+        android:pivotY="50%"
+        android:pivotX="50%"
+        android:fromDegrees="0"
+        android:toDegrees="360"
+        android:duration="2500"
+        android:repeatCount = "-1"
         />
-
+    <translate
+        android:interpolator = "@android:anim/accelerate_decelerate_interpolator"
+        android:fromYDelta="0%p"
+        android:toYDelta="10%p"
+        android:duration="500"
+        android:repeatCount="-1"
+        android:repeatMode="reverse"
+        />
 </set>

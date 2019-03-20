@@ -12,7 +12,7 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
     private AnimationDrawable anim;
     private ImageView engraVermell, engraVerd,engraBlau,ull,donut;
-    private Animation animation2, animation1,animation4;
+    private Animation animation2, animation1,animation4, animation5;
     private MediaPlayer mp;
 
     @Override
@@ -51,11 +51,14 @@ public class MainActivity extends AppCompatActivity {
             izquierda(engraVermell);
             mueveDonut(donut);
             musica();
+            mueveOjo();
         }else{
 
             engraVermell.clearAnimation();
             engraBlau.clearAnimation();
             engraVerd.clearAnimation();
+            ull.clearAnimation();
+            donut.clearAnimation();
             mp.stop();
 
             engraVermell.setVisibility(View.INVISIBLE);
@@ -80,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
     }
     private void mueveDonut(ImageView donut){
 
-        Animation animation4 =
+        animation4 =
                 AnimationUtils.loadAnimation(getApplicationContext(), R.anim.move);
         donut.startAnimation(animation4);
     }
@@ -89,6 +92,11 @@ public class MainActivity extends AppCompatActivity {
        mp.start();
 
     }
-
+    /*
+    private void mueveOjo(){
+        animation5 = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.ull);
+        ull.startAnimation(animation5);
+    }
+ */
 }
 
