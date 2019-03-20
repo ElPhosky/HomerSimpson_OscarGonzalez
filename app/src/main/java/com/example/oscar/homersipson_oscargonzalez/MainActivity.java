@@ -1,6 +1,7 @@
 package com.example.oscar.homersipson_oscargonzalez;
 
 import android.graphics.drawable.AnimationDrawable;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,8 @@ import android.widget.ImageView;
 public class MainActivity extends AppCompatActivity {
     private AnimationDrawable anim;
     private ImageView engraVermell, engraVerd,engraBlau,ull,donut;
-    private Animation animation2, animation1;
+    private Animation animation2, animation1,animation4;
+    private MediaPlayer mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +49,14 @@ public class MainActivity extends AppCompatActivity {
             derecha(engraVerd);
             izquierda(engraBlau);
             izquierda(engraVermell);
+            mueveDonut(donut);
+            musica();
         }else{
 
-            animation1.cancel();
-
-            animation2.cancel();
+            engraVermell.clearAnimation();
+            engraBlau.clearAnimation();
+            engraVerd.clearAnimation();
+            mp.stop();
 
             engraVermell.setVisibility(View.INVISIBLE);
             engraVerd.setVisibility(View.INVISIBLE);
@@ -72,6 +77,17 @@ public class MainActivity extends AppCompatActivity {
                 R.anim.clockwiseizquierda);
 
         engra.startAnimation(animation1);
+    }
+    private void mueveDonut(ImageView donut){
+
+        Animation animation4 =
+                AnimationUtils.loadAnimation(getApplicationContext(), R.anim.move);
+        donut.startAnimation(animation4);
+    }
+    private void musica(){
+       mp = MediaPlayer.create(this, R.raw.the_simpsons);
+       mp.start();
+
     }
 
 }
